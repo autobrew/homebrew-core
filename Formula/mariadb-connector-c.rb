@@ -3,7 +3,7 @@ class MariadbConnectorC < Formula
   homepage "https://downloads.mariadb.org/connector-c/"
   url "https://downloads.mariadb.org/f/connector-c-3.1.7/mariadb-connector-c-3.1.7-src.tar.gz"
   sha256 "64f7bc8f5df3200ba6e3080f68ee4942382a33e8371baea8ca4b9242746df59a"
-  revision 1
+  revision 2
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", :branch => 3.1
 
   patch do
