@@ -1,14 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://archive.apache.org/dist/arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  mirror "https://www-eu.apache.org/dist/arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
-  sha256 "261992de4029a1593195ff4000501503bd403146471b3168bd2cc414ad0fb7f5"
-
-  patch do
-    url "https://github.com/apache/arrow/commit/7e24a84d.patch"
-    sha256 "50cf74f10543a5eea667af34de010e1040d6209d8efcf4d4586510961ac08912"
-  end
+  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-0.17.0-rc0/apache-arrow-0.17.0.tar.gz"
+  sha256 "2c46b4c3e1f88aad510214e633a6f4ce459708f3db78cd0daf549a135cbe8e6d"
 
   bottle do
     cellar :any
@@ -17,8 +11,6 @@ class ApacheArrow < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "flatbuffers" => :build
-  depends_on "boost"
   depends_on "lz4"
   depends_on "thrift"
   depends_on "snappy"
@@ -44,7 +36,6 @@ class ApacheArrow < Formula
       -DARROW_WITH_SNAPPY=ON
       -DARROW_BUILD_UTILITIES=ON
       -DPARQUET_BUILD_EXECUTABLES=ON
-      -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DTHRIFT_HOME=#{Formula["thrift"].prefix}
     ]
