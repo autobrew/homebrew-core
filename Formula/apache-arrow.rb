@@ -1,7 +1,7 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-0.17.0-rc0/apache-arrow-0.17.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-0.17.0/apache-arrow-0.17.0.tar.gz"
   sha256 "2c46b4c3e1f88aad510214e633a6f4ce459708f3db78cd0daf549a135cbe8e6d"
 
   bottle do
