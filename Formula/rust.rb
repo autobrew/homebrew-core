@@ -29,13 +29,13 @@ class Rust < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" => :build
+  depends_on "python" => :build
   depends_on "libssh2"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
 
-  uses_from_macos "curl"
-  uses_from_macos "zlib"
+  #uses_from_macos "curl"
+  #uses_from_macos "zlib"
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
@@ -44,7 +44,7 @@ class Rust < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
