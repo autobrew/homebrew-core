@@ -19,6 +19,7 @@ class Cairo < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "libpng"
@@ -32,7 +33,7 @@ class Cairo < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-gobject=no",
+                          "--enable-gobject=yes",
                           "--enable-fc=yes",
                           "--enable-svg=yes",
                           "--enable-tee=yes",

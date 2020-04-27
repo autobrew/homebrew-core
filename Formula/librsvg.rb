@@ -27,7 +27,7 @@ class Librsvg < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --disable-Bsymbolic
-      --enable-tools=no
+      --enable-tools=yes
       --enable-pixbuf-loader=no
       --enable-introspection=no
     ]
