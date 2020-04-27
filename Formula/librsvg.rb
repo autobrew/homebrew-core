@@ -1,14 +1,15 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.44/librsvg-2.44.13.tar.xz"
-  sha256 "d2d660bf0c6441d019ae7a7ba96b789facbfb14dc97818908ee03e15ba6bcb8f"
+  url "https://download.gnome.org/sources/librsvg/2.48/librsvg-2.48.4.tar.xz"
+  sha256 "28b63af85ced557383d3d3ece6e1f6938720dee1ecfa40d926bf1de4747c956e"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    rebuild 1
-    sha256 "4215e484368a2ec74d7e67ec54b7370e42f4a16c1914d1d691d1ddffa7d27aee" => :el_capitan
+    sha256 "d059b06a76d378ea008ce8058dbdfa965e542468ec10e30013a7a3a2c0518b2e" => :catalina
+    sha256 "7262c196e991c6f700783b7eb1a5989d11973c444dbd0f281688a659250f77da" => :mojave
+    sha256 "b5db19b2ed09cbd38aa5e72e4e2291d8d8d8a448fcca14bc74c823b82ff360ed" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -16,10 +17,12 @@ class Librsvg < Formula
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "libcroco"
   depends_on "pango"
 
   def install
+    # https://gitlab.gnome.org/GNOME/librsvg/issues/545#note_753842
+    ENV.append "LDFLAGS", "-lobjc"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -52,16 +55,21 @@ class Librsvg < Formula
       }
     EOS
     cairo = Formula["cairo"]
+    fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
+    glib = Formula["glib"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
     flags = %W[
       -I#{cairo.opt_include}/cairo
+      -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
       -I#{gettext.opt_include}
+      -I#{glib.opt_include}/glib-2.0
+      -I#{glib.opt_lib}/glib-2.0/include
       -I#{include}/librsvg-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{pixman.opt_include}/pixman-1
@@ -69,6 +77,7 @@ class Librsvg < Formula
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
+      -L#{glib.opt_lib}
       -L#{lib}
       -lcairo
       -lgdk_pixbuf-2.0
