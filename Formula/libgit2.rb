@@ -7,9 +7,8 @@ class Libgit2 < Formula
 
   bottle do
     cellar :any
-    sha256 "d9468719e8d981a91efea6ad25f83dd0d72300aef3f99c593844fbf440596de9" => :catalina
-    sha256 "aa852c2192e21ccff73cee2b8819c5362083746e5cfbba06b6c38e3a5102b818" => :mojave
-    sha256 "7f8ba85e6a7eff267eb1e750a85fc5d440858329ea9e2d674ec8900dd82ba3be" => :high_sierra
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "42ae13158dcd1838c7db66196700dc24701a6663d2a22f98215023319a738d51" => :el_capitan
   end
 
   depends_on "cmake" => :build
