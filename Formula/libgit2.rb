@@ -1,14 +1,15 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.27.8.tar.gz"
-  sha256 "8313873d49dc01e8b880ec334d7430ae67496a89aaa8c6e7bbd3affb47a00c76"
+  url "https://github.com/libgit2/libgit2/archive/v1.0.0.tar.gz"
+  sha256 "6a1fa16a7f6335ce8b2630fbdbb5e57c4027929ebc56fcd1ac55edb141b409b4"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
-    root_url "https://autobrew.github.io/bottles"
-    sha256 "74f2a49a7f0d37b99484f138d17f520e250e0849167c7365718f1fbb2e81c702" => :el_capitan
+    sha256 "d9468719e8d981a91efea6ad25f83dd0d72300aef3f99c593844fbf440596de9" => :catalina
+    sha256 "aa852c2192e21ccff73cee2b8819c5362083746e5cfbba06b6c38e3a5102b818" => :mojave
+    sha256 "7f8ba85e6a7eff267eb1e750a85fc5d440858329ea9e2d674ec8900dd82ba3be" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -24,11 +25,7 @@ class Libgit2 < Formula
       system "cmake", "..", *args
       system "make", "install"
       cd "examples" do
-        (pkgshare/"examples").install "add", "blame", "cat-file", "cgit2",
-                                      "describe", "diff", "for-each-ref",
-                                      "general", "init", "log", "remote",
-                                      "rev-list", "rev-parse", "showindex",
-                                      "status", "tag"
+        (pkgshare/"examples").install "lg2"
       end
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
@@ -40,7 +37,6 @@ class Libgit2 < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <git2.h>
-
       int main(int argc, char *argv[]) {
         int options = git_libgit2_features();
         return 0;
