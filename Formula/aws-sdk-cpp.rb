@@ -18,8 +18,8 @@ class AwsSdkCpp < Formula
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=OFF"
-    
+    args << "-DBUILD_SHARED_LIBS=OFF -DBUILD_ONLY=s3;core;config"
+
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
