@@ -2,6 +2,7 @@ class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?action=download&filename=arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
+  mirror "https://downloads.apache.org/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
   # Uncomment and update to test on a release candidate
   # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-0.17.1-rc1/apache-arrow-0.17.1.tar.gz"
   sha256 "cbc51c343bca08b10f7f1b2ef15cb15057c30e5e9017cfcee18337b7e2da9ea2"
