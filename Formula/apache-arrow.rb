@@ -3,7 +3,7 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   # url "https://downloads.apache.org/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
   # Uncomment and update to test on a release candidate
-  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.0-rc1/apache-arrow-0.17.1.tar.gz"
+  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.0-rc1/apache-arrow-1.0.0.tar.gz"
   sha256 "4df75f3e544c5ffd964e3c2536c41799debfc84677db4925bd064c4ba178ca0c"
 
   bottle do
