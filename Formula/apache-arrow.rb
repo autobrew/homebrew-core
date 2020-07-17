@@ -1,10 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
+  # url "https://downloads.apache.org/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
   # Uncomment and update to test on a release candidate
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-0.17.1-rc1/apache-arrow-0.17.1.tar.gz"
-  sha256 "cbc51c343bca08b10f7f1b2ef15cb15057c30e5e9017cfcee18337b7e2da9ea2"
+  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.0-rc1/apache-arrow-0.17.1.tar.gz"
+  sha256 "4df75f3e544c5ffd964e3c2536c41799debfc84677db4925bd064c4ba178ca0c"
 
   bottle do
     cellar :any
@@ -29,15 +29,17 @@ class ApacheArrow < Formula
       -DARROW_JSON=ON
       -DARROW_PARQUET=ON
       -DARROW_BUILD_SHARED=OFF
-      -DARROW_JEMALLOC=OFF
+      -DARROW_JEMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
       -DARROW_S3=OFF
       -DARROW_WITH_LZ4=ON
+      -DARROW_WITH_SNAPPY=ON
+      -DARROW_WITH_UTF8PROC=OFF
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=OFF
-      -DARROW_WITH_SNAPPY=ON
       -DARROW_BUILD_UTILITIES=ON
+      -DCMAKE_UNITY_BUILD=ON
       -DPARQUET_BUILD_EXECUTABLES=ON
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DTHRIFT_HOME=#{Formula["thrift"].prefix}
