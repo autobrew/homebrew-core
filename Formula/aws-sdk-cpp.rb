@@ -15,7 +15,8 @@ class AwsSdkCpp < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_ONLY=s3;core;config", "-DENABLE_UNITY_BUILD=ON",  *std_cmake_args
+      ENV["CPATH"] = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include"
+      system "cmake", "..", "-DAUTORUN_UNIT_TESTS=OFF", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_ONLY=s3;core;config", "-DENABLE_UNITY_BUILD=ON",  *std_cmake_args
       system "make"
       system "make", "install"
     end
