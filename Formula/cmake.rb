@@ -7,9 +7,9 @@ class Cmake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "590ad7be94461516a5e9c2c4b52316bd77124671bc294835bb7caefc0056d0f6" => :catalina
-    sha256 "9f0cf88ec2b2f5ba8f0e2dadaae8d287e650136a792589587d3472f481c90dda" => :mojave
     sha256 "38522cf8d87c44416649c349835e76583bdaa0c23bd68ce1ab4cc4df73f36658" => :high_sierra
+    sha256 "0338c8f714ebc943520bd2bdc96e88c9c9786018853c4a8649d90413c9ce3280" => :el_capitan
+    root_url "https://autobrew.github.io/bottles"
   end
 
   # The completions were removed because of problems with system bash
