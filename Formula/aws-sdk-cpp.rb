@@ -17,7 +17,7 @@ class AwsSdkCpp < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_ONLY=config;s3;transfer", "-DENABLE_UNITY_BUILD=ON",  *std_cmake_args
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_ONLY=config;s3;transfer;identity-management;sts", "-DENABLE_UNITY_BUILD=ON",  *std_cmake_args
       system "make"
       system "make", "install"
     end
