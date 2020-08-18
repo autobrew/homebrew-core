@@ -14,6 +14,7 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "aws-sdk-cpp"
   depends_on "lz4"
   depends_on "thrift"
   depends_on "snappy"
@@ -32,15 +33,16 @@ class ApacheArrow < Formula
       -DARROW_JEMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
-      -DARROW_S3=OFF
+      -DARROW_S3=ON
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_UTF8PROC=OFF
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=OFF
       -DARROW_BUILD_UTILITIES=ON
-      -DCMAKE_UNITY_BUILD=ON
+      -DCMAKE_UNITY_BUILD=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
+      -DAWSSDK_HOME=#{Formula["aws-sdk-cpp"].prefix}
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DTHRIFT_HOME=#{Formula["thrift"].prefix}
     ]
