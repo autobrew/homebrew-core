@@ -43,7 +43,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=OFF
       -DARROW_BUILD_UTILITIES=ON
-      -DCMAKE_UNITY_BUILD=ON
+      -DCMAKE_UNITY_BUILD=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DTHRIFT_HOME=#{Formula["thrift"].prefix}
