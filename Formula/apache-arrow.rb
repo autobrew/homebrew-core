@@ -1,11 +1,15 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  # url "https://downloads.apache.org/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
   # Uncomment and update to test on a release candidate 
-  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.1-rc0/apache-arrow-1.0.1.tar.gz"
+  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.1-rc0/apache-arrow-1.0.1.tar.gz"
   sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
 
+  patch do
+    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch"
+  end
+  
   bottle do
     cellar :any
     sha256 "069071b28cbb0fb03306fda0e102e7973b7a7ecd87042bb5d636b83fa4b5309c" => :el_capitan
