@@ -12,7 +12,8 @@ class ApacheArrow < Formula
   
   bottle do
     cellar :any
-    sha256 "069071b28cbb0fb03306fda0e102e7973b7a7ecd87042bb5d636b83fa4b5309c" => :el_capitan
+    sha256 "7e1600cc98244a80b3567da2eed8a36922fb2faea6ef4e6b9bc74ee40d720bab" => :high_sierra
+    sha256 "c0703750b7d3d21d6156db590caecdf0a899674db57abb88ac3eff6e10d265de" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
@@ -65,7 +66,7 @@ class ApacheArrow < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-larrow", "-larrow_bundled_dependencies", "-llz4", "-lsnappy", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-larrow", "-larrow_bundled_dependencies", "-o", "test"
     system "./test"
   end
 end
