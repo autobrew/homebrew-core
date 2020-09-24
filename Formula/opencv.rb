@@ -85,6 +85,10 @@ class Opencv < Formula
       inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
+
+      # Jeroen: fix static linking flags
+      inreplace "#{lib}/pkgconfig/opencv4.pc", "-lAccelerate.framework", "-framework Accelerate -framework AVFoundation"
+      inreplace "#{lib}/pkgconfig/opencv4.pc", "-llibz.dylib", "-lz"
     end
   end
 
