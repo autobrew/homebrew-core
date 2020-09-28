@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
-  sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.4.tar.xz"
+  sha256 "0d5da81feba073ee78e0f18e0966bcaf91464ae75e18e9a0135186249e3d2a0b"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -47,6 +47,9 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
+
+    # Fix for Non-executables that were installed to bin/
+    mv bin/"python", pkgshare/"python", force: true
   end
 
   test do
