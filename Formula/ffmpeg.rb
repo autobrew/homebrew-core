@@ -8,7 +8,8 @@ class Ffmpeg < Formula
   bottle do
     cellar :any_skip_relocation
     root_url "https://autobrew.github.io/bottles"
-    sha256 "ccf70655943ec26ba729f271df501f28f46b5c24738fb94e2405b825ad6fadd1" => :el_capitan
+    sha256 "996f37c818b88711a2e403b0be64422303c2373ce9ab5a4d1b028e60a8d0bb96" => :high_sierra
+    sha256 "076b58f0a2f5831bcba02aab7902b435ec1e4f261b6dbc07e9f39bf96877759f" => :el_capitan
   end
 
   depends_on "nasm" => :build
