@@ -12,7 +12,8 @@ class ImagemagickAT6 < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "fdf2bda541cd8d20f06864c859c8cc960938d0f92a14f59d0b0bcfa5c559578d" => :el_capitan
+    sha256 "556d15db80b11f70e1d48c593fb9cc99f92b4e535e770b077458d0098144b673" => :el_capitan
+    sha256 "50fdebe7f8be8c42a59d273ef6d91979129ac6e43bcc4047d42bf0a44638c59f" => :high_sierra
   end
 
   keg_only :versioned_formula
