@@ -6,12 +6,9 @@ class Libssh2 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-#    sha256 "9705f2a153a854b15bff89663eca46dd211f5fc025031b9851d64874f83c8f53" => :mojave
-    sha256 "22327eb5bbff660935db0c5106d5a43069ee23e5cb33d5125bad4e144e83ee34" => :high_sierra
-    sha256 "4a1e39137bc9461d779a7a84626354928788aeb0650fb0fed75e0fbecb95c0cd" => :sierra
-    sha256 "d6693c1417f0deb8f1b0c6a7c338491a7f60f2cc516675186e572329c1fcaa6c" => :el_capitan
-    sha256 "f7fab0024a104c43a3139b0e70cbc04606c20409b36ffb6deebb326c168c4547" => :yosemite
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "f5e9abfe13cbea489ab11d5a7c5704d29b5c7c2f74921c32b1db908cc0c38a3b" => :high_sierra
+    sha256 "a0ab62111867ff1e87077ee8c82fd3fcde3d0d3a1771de4422eb05160486c973" => :el_capitan
   end
 
   head do
