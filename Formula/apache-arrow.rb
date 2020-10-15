@@ -6,6 +6,11 @@ class ApacheArrow < Formula
   url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
   sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
   
+  patch do
+    # Skip out on some avx512 code that doesnt' compile on macos 10.11
+    url "https://github.com/apache/arrow/commit/699d702c30da5582b82e6136afe9a10903f5c695.patch"	
+  end
+  
   bottle do
     cellar :any
     sha256 "7e1600cc98244a80b3567da2eed8a36922fb2faea6ef4e6b9bc74ee40d720bab" => :high_sierra
