@@ -1,14 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  # url "https://downloads.apache.org/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.1-rc0/apache-arrow-1.0.1.tar.gz"
-  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
-
-  patch do
-    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch"
-  end
+  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
+  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
   
   bottle do
     cellar :any
@@ -19,9 +15,11 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "aws-sdk-cpp"
   depends_on "lz4"
   depends_on "thrift"
   depends_on "snappy"
+  depends_on "zstd"
 
   def install
     ENV.cxx11
@@ -37,12 +35,12 @@ class ApacheArrow < Formula
       -DARROW_JEMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
-      -DARROW_S3=OFF
+      -DARROW_S3=ON
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_UTF8PROC=OFF
       -DARROW_WITH_ZLIB=ON
-      -DARROW_WITH_ZSTD=OFF
+      -DARROW_WITH_ZSTD=ON
       -DARROW_BUILD_UTILITIES=ON
       -DCMAKE_UNITY_BUILD=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
