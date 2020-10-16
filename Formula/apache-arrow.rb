@@ -7,8 +7,8 @@ class ApacheArrow < Formula
   sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
   
   patch do
-    # Skip out on some avx512 code that doesnt' compile on macos 10.11
-    url "https://github.com/apache/arrow/commit/699d702c30da5582b82e6136afe9a10903f5c695.patch"	
+    # Properly detect (lack of) avx512 support
+    url "https://github.com/apache/arrow/commit/bbe4bd3c9c158fb05d2d0a830e631918ad825529.patch"	
   end
   
   bottle do
@@ -39,7 +39,6 @@ class ApacheArrow < Formula
       -DARROW_BUILD_SHARED=OFF
       -DARROW_JEMALLOC=ON
       -DARROW_USE_GLOG=OFF
-      -DARROW_RUNTIME_SIMD_LEVEL=AVX2
       -DARROW_PYTHON=OFF
       -DARROW_S3=ON
       -DARROW_WITH_LZ4=ON
