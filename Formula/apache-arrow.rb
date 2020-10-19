@@ -1,27 +1,30 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-1.0.1/apache-arrow-1.0.1.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-1.0.1-rc0/apache-arrow-1.0.1.tar.gz"
-  sha256 "149ca6aa969ac5742f3b30d1f69a6931a533fd1db8b96712e60bf386a26dc75c"
-
+  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
+  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
+  
   patch do
-    url "https://github.com/apache/arrow/commit/ae60bad1c2e28bd67cdaeaa05f35096ae193e43a.patch"
+    # Properly detect (lack of) avx512 support
+    url "https://github.com/apache/arrow/commit/bbe4bd3c9c158fb05d2d0a830e631918ad825529.patch"	
   end
   
   bottle do
     cellar :any
-    sha256 "7e1600cc98244a80b3567da2eed8a36922fb2faea6ef4e6b9bc74ee40d720bab" => :high_sierra
-    sha256 "c0703750b7d3d21d6156db590caecdf0a899674db57abb88ac3eff6e10d265de" => :el_capitan
+    sha256 "ea976b3c83e5507128c30dfe226567ac4997ef2b35bc13645d3429d78c87be3f" => :high_sierra
+    sha256 "b5f28aa64b96d876308ba1feddda0f2ccca6fa11068e6d24eb5045022bded55d" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "aws-sdk-cpp"
   depends_on "lz4"
   depends_on "thrift"
   depends_on "snappy"
+  depends_on "zstd"
 
   def install
     ENV.cxx11
@@ -37,12 +40,12 @@ class ApacheArrow < Formula
       -DARROW_JEMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
-      -DARROW_S3=OFF
+      -DARROW_S3=ON
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_UTF8PROC=OFF
       -DARROW_WITH_ZLIB=ON
-      -DARROW_WITH_ZSTD=OFF
+      -DARROW_WITH_ZSTD=ON
       -DARROW_BUILD_UTILITIES=ON
       -DCMAKE_UNITY_BUILD=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
