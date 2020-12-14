@@ -1,14 +1,15 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.0.tar.gz"
-  sha256 "5c5ed5f1a76888dc57a83704f24ae02f8319849f5c4cf19d254296978a1a1961"
+  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz"
+  sha256 "2a66ff0d8595bff8f04032165e6c936389b1e5727c3ce5a27b3e059d218db1cb"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "4efc3b406ca11f3698c48b6cd6208b2d0b517db0e465f88142fd84000fb0b7c8" => :el_capitan
+    sha256 "8db5c37a1bb4ac46a515bc856ae08a16bf1b5a0910ddc6f9d5c387e9c568e92e" => :high_sierra
+    sha256 "b46f8c99e175823bfb47886fca9e2d9c77dcc11eac9621b6c285f7f4768db85d" => :el_capitan
   end
 
   option "with-all-languages", "Install recognition data for all languages"
