@@ -13,6 +13,7 @@ class X264 < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
+    sha256 "88eedab58ed2a91d0f72adb13ca5cca30debaaa53811e41ef475071cac910692" => :high_sierra
     sha256 "b848b6282558496b4ca4f39c8358f6f600cca2bb09da3e1af326d058b3fe989d" => :el_capitan
   end
 
@@ -22,6 +23,8 @@ class X264 < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash
+      --disable-swscale
+      --disable-ffms
       --enable-shared
       --enable-static
       --enable-strip

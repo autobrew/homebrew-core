@@ -8,6 +8,7 @@ class Cairo < Formula
     rebuild 4
     cellar :any
     root_url "https://autobrew.github.io/bottles"
+    sha256 "548f4405f483050787edface43c25c646b4ee790b206e9c0a3a637162abe625b" => :high_sierra
     sha256 "064b80dc96cb032b8a83deb7260a9f553176dbc63bd0824ae6aceeae624bf92e" => :el_capitan
   end
 
