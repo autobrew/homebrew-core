@@ -1,13 +1,14 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.3.1.tar.bz2"
-  sha256 "f205699d5b91374008d6f8e36c59e419ae2d9a7bb8c5d9f34041b9a5abcae468"
+  url "https://github.com/harfbuzz/harfbuzz/releases/download/2.6.8/harfbuzz-2.6.8.tar.xz"
+  sha256 "6648a571a27f186e47094121f0095e1b809e918b3037c630c7f38ffad86e3035"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "86218514b0bb7b9825eac4d7e28f614d1635c55f92edf473fcb222c2906fbcf9" => :el_capitan
+    sha256 "ff69a491cc80d054f84e1267e519d99d016bc74713bc3c8756b2dd6b21f82c9b" => :high_sierra
+    sha256 "beefaf032e15776aaae7e880b2936c350bad204bbd00d2730d46a9ffbf467b83" => :el_capitan
   end
 
   head do
