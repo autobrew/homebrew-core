@@ -1,9 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
-  sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
-  revision 1
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.12.4/protobuf-all-3.12.4.tar.gz"
+  sha256 "e7bf41873d1a87c05c2b0a6197f4445c6ea3469ce0165ff14de2df8b34262530"
   head "https://github.com/google/protobuf.git"
 
   bottle do
@@ -28,8 +27,8 @@ class Protobuf < Formula
   depends_on "python" => :optional
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   # Upstream's autogen script fetches this if not present
@@ -51,7 +50,7 @@ class Protobuf < Formula
     system "./autogen.sh"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--with-zlib"
+                          "--prefix=#{prefix}", "--disable-shared", "--with-zlib"
     system "make"
     system "make", "check" if build.with?("test") || build.bottle?
     system "make", "install"
