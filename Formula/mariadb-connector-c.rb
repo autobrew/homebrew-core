@@ -1,20 +1,16 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-3.1.7/mariadb-connector-c-3.1.7-src.tar.gz"
-  sha256 "64f7bc8f5df3200ba6e3080f68ee4942382a33e8371baea8ca4b9242746df59a"
-  revision 1
+  url "https://downloads.mariadb.org/f/connector-c-3.1.11/mariadb-connector-c-3.1.11-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.1.11-src.tar.gz"
+  sha256 "3e6f6c399493fe90efdc21a3fe70c30434b7480e8195642a959f1dd7a0fa5b0f"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git", :branch => 3.1
-
-  patch do
-    url "https://github.com/mariadb-corporation/mariadb-connector-c/commit/fbf1db62.patch"
-    sha256 "658b88969c147efa0fcd1c6d067fe6e7a63936d336d22d396c55fc0e268ee696"
-  end
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "9fdd9109ae52e7d8fd77957c56b1c497037837c03dba06506cc96f38d0ddf38a" => :el_capitan
+    sha256 "4da246554950bbf134c7c2ea1bd62c4f3035703ebbb80f636bb1eac4f57c025f" => :high_sierra
+    sha256 "4e5eef09c84c7f43957393d765deadc7f5d7e18ae444874ba97ad753438ef5b0" => :el_capitan
   end
 
   depends_on "cmake" => :build
