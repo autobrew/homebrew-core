@@ -4,6 +4,7 @@ class GdkPixbuf < Formula
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.12.tar.xz"
   sha256 "fff85cf48223ab60e3c3c8318e2087131b590fd6f1737e42cb3759a3b427a334"
 
+
   bottle do
     rebuild 1
     cellar :any
