@@ -1,14 +1,14 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2"
-  sha256 "c345c5e73cc2332f8d50db84a2280abfb1d8f6d4f1858b9daa30404db44540ca"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.41.tar.bz2"
+  sha256 "64b078b45ac3c3003d7e352a5e05318880a5778c42331ce1ef33d1a0d9922742"
 
   bottle do
-#    sha256 "fba8de71f2dd273a65e13f4f840c664c448443f14a88e3532c74f89ffa5d997f" => :mojave
-    sha256 "2e6fd2335afa3af8ce25f337f80d38ba3447e5a054c729711e60b0d107b21bb7" => :high_sierra
-    sha256 "32b74e2a574575de2bdbd26e55732169702de45f872a35790e371aa1fe15d4b0" => :sierra
-    sha256 "5554d7a582da3a4e196bd688d083bf4fe385aab7754c6c7ebe0a033db29eed19" => :el_capitan
+    cellar :any
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "ff8ce07cbd42111ec985f46f367f5cb884126263316d5aeb36a9e06aac61f252" => :el_capitan
+    sha256 "a5425733af86d25cd9554b93dacc8698a168e3f6b40d07c27d61bbec961957fa" => :high_sierra
   end
 
   def install
