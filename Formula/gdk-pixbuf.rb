@@ -8,6 +8,7 @@ class GdkPixbuf < Formula
     rebuild 1
     cellar :any
     root_url "https://autobrew.github.io/bottles"
+    sha256 "82d10efad5af72a4a1dde5a9a610b1ef242595f3d115f72fb397249b23f9ad1d" => :high_sierra
     sha256 "57ffaa5c6cbbae6c1f40883339db99003e729a9ae918ab054cf46204bf566a78" => :el_capitan
   end
 
