@@ -1,9 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/12/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
-  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v13.1/postgresql-13.1.tar.bz2"
+  sha256 "12345c83b89aa29808568977f5200d6da00f88a035517f925293355432ffe61f"
 
   bottle do
     cellar :any
@@ -12,6 +11,10 @@ class Libpq < Formula
   end
 
   keg_only "conflicts with postgres formula"
+
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  # depends_on "krb5"
 
   depends_on "openssl@1.1"
 
@@ -33,8 +36,8 @@ class Libpq < Formula
     system "make", "-C", "src/bin", "install", *dirs
     system "make", "-C", "src/include", "install", *dirs
     system "make", "-C", "src/interfaces", "install", *dirs
-    system "make", "-C", "src/port", "install", *dirs
     system "make", "-C", "src/common", "install", *dirs
+    system "make", "-C", "src/port", "install", *dirs
     system "make", "-C", "doc", "install", *dirs
   end
 
@@ -43,23 +46,18 @@ class Libpq < Formula
       #include <stdlib.h>
       #include <stdio.h>
       #include <libpq-fe.h>
-
       int main()
       {
           const char *conninfo;
           PGconn     *conn;
-
           conninfo = "dbname = postgres";
-
           conn = PQconnectdb(conninfo);
-
           if (PQstatus(conn) != CONNECTION_OK) // This should always fail
           {
               printf("Connection to database attempted and failed");
               PQfinish(conn);
               exit(0);
           }
-
           return 0;
         }
     EOS
