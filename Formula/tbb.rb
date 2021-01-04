@@ -1,9 +1,9 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2019_U5.tar.gz"
-  version "2019_U5"
-  sha256 "2ea82d74dec50e18075b4982b8d360f8bd2bf2950f38e2db483aef82e0047444"
+  url "https://github.com/intel/tbb/archive/v2020.3.tar.gz"
+  version "2020_U3"
+  sha256 "ebc4f6aa47972daed1f7bf71d100ae5bf6931c2e3144cf299c8cc7d041dca2f3"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,10 @@ class Tbb < Formula
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
+    lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+
+    # Build and install static libraries
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
                    "extra_inc=big_iron.inc"
     lib.install Dir["build/BUILDPREFIX_release/*.a"]
@@ -27,10 +31,10 @@ class Tbb < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    system "cmake", "-DTBB_ROOT=#{prefix}",
-                    "-DTBB_OS=Darwin",
-                    "-DSAVE_TO=lib/cmake/TBB",
-                    "-P", "cmake/tbb_config_generator.cmake"
+    system "cmake", "-DINSTALL_DIR=lib/cmake/TBB",
+                    "-DSYSTEM_NAME=Darwin",
+                    "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
+                    "-P", "cmake/tbb_config_installer.cmake"
 
     (lib/"cmake"/"TBB").install Dir["lib/cmake/TBB/*.cmake"]
   end
@@ -39,7 +43,6 @@ class Tbb < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <tbb/task_scheduler_init.h>
       #include <iostream>
-
       int main()
       {
         std::cout << tbb::task_scheduler_init::default_num_threads();
