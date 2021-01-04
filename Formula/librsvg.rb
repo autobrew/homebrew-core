@@ -7,6 +7,7 @@ class Librsvg < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
+    sha256 "c4e2160758d7fbd1bc491afa3a5929ad3a734ac1ba86da3ec643c3c6601d36fc" => :high_sierra
     sha256 "d32666f4cd8f0f44cb2245f85b1ba0c3d52a6e7575ece037a4262006eeb6a714" => :el_capitan
   end
 
