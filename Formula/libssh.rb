@@ -7,20 +7,22 @@ class Libssh < Formula
 
   bottle do
     cellar :any
+    rebuild 1
     root_url "https://autobrew.github.io/bottles"
-    sha256 "4957e27cdba6951942609bf5e0238de05f64b58a2c465d13b58b3fa624b20397" => :el_capitan
-    sha256 "f47e3351fd142df3eb88eecf14e2582cb7496f61bee552ad3aa43860c8c573c0" => :high_sierra
+    sha256 "fff93b2bc7ec0afbd213ec5fbfc81ec17112cb05d69abb693d399168a4f13c75" => :el_capitan
+    sha256 "eddbf3cd5b6b97bbadfb888d621842b874348a2203cd226e788c3ffc156883a1" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DWITH_STATIC_LIB=ON",
+      system "cmake", "..", "-DBUILD_STATIC_LIB=ON",
                             "-DWITH_SYMBOL_VERSIONING=OFF",
                             *std_cmake_args
       system "make", "install"
+      lib.install "src/libssh.a"
     end
   end
 
