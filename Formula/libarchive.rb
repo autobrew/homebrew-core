@@ -1,8 +1,8 @@
 class Libarchive < Formula
   desc "Multi-format archive and compression library"
   homepage "https://www.libarchive.org"
-  url "https://www.libarchive.org/downloads/libarchive-3.3.3.tar.gz"
-  sha256 "ba7eb1781c9fbbae178c4c6bad1c6eb08edab9a1496c64833d1715d022b30e2e"
+  url "https://www.libarchive.org/downloads/libarchive-3.5.1.tar.xz"
+  sha256 "0e17d3a8d0b206018693b27f08029b598f6ef03600c2b5d10c94ce58692e299b"
 
   bottle do
     cellar :any
@@ -14,9 +14,10 @@ class Libarchive < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "xz" => :recommended
-  depends_on "lz4" => :optional
-  depends_on "lzop" => :optional
+  depends_on "libb2"
+  depends_on "lz4"
+  depends_on "xz"
+  depends_on "zstd"
 
   def install
     system "./configure",
