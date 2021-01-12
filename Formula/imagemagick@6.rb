@@ -4,9 +4,9 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-32.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-32.tar.xz"
-  sha256 "151733e004cb1b49c77e04e1257b9883b6cce2221fc44b0176845e14f75eca52"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-57.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-57.tar.xz"
+  sha256 "1a1d35a6e702a498d34b4a4f9fbf5aab228ee233d18b83f742163071fc6b7e05"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
@@ -23,7 +23,9 @@ class ImagemagickAT6 < Formula
   depends_on "libtool"
   depends_on "xz"
   depends_on "jpeg"
+  depends_on "libheif"
   depends_on "libpng"
+  depends_on "libraw"
   depends_on "libtiff"
   depends_on "freetype"
   depends_on "fontconfig"
@@ -46,6 +48,8 @@ class ImagemagickAT6 < Formula
       --with-webp
       --with-pango
       --with-rsvg
+      --with-libraw
+      --with-heic
       --without-x
       --without-wmf
       --without-modules
@@ -58,7 +62,7 @@ class ImagemagickAT6 < Formula
     ]
 
     # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
   end
@@ -67,7 +71,7 @@ class ImagemagickAT6 < Formula
     assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
     # Check support for recommended features and delegates.
     features = shell_output("#{bin}/convert -version")
-    %w[fontconfig pango cairo rsvg webp freetype jpeg jp2 png tiff].each do |feature|
+    %w[raw heic fontconfig pango cairo rsvg webp freetype jpeg jp2 png tiff].each do |feature|
       assert_match feature, features
     end
   end
