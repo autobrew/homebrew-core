@@ -1,6 +1,10 @@
 os: osx
 language: c
 
+branches:
+  only:
+  - master
+
 matrix:
   include:
     - osx_image: xcode8
