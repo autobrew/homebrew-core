@@ -5,17 +5,14 @@ class Libpq < Formula
   sha256 "12345c83b89aa29808568977f5200d6da00f88a035517f925293355432ffe61f"
 
   bottle do
-    cellar :any
-    root_url "https://autobrew.github.io/bottles"
-    sha256 "e1c99b95b36b4e55adce0177bfd51d2705b97a20d16cdcc983a07e3ca759b3b5" => :el_capitan
-    sha256 "b5aa5f9f5dbde79be847f193d26d3b9d1d4461cb7c9223db21d0a75fd8c5bdbd" => :high_sierra
+    sha256 "47101f9b3f690bffef78b2b656583d43e1e91cb2d563abfbbaecff7040a5b097" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
-  # depends_on "krb5"
+  depends_on "krb5"
 
   depends_on "openssl@1.1"
 
@@ -47,18 +44,23 @@ class Libpq < Formula
       #include <stdlib.h>
       #include <stdio.h>
       #include <libpq-fe.h>
+
       int main()
       {
           const char *conninfo;
           PGconn     *conn;
+
           conninfo = "dbname = postgres";
+
           conn = PQconnectdb(conninfo);
+
           if (PQstatus(conn) != CONNECTION_OK) // This should always fail
           {
               printf("Connection to database attempted and failed");
               PQfinish(conn);
               exit(0);
           }
+
           return 0;
         }
     EOS

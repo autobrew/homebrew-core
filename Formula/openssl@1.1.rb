@@ -1,21 +1,16 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1g.tar.gz"
-  sha256 "ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"
-  version_scheme 1
+  url "https://www.openssl.org/source/openssl-1.1.1h.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1h.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1h.tar.gz"
+  sha256 "5c9ca8774bd7b03e5784f26ae9e9e6d749c9da2438545077e6b3d755a06595d9"
 
   bottle do
-    cellar :any
-    root_url "https://autobrew.github.io/bottles"
-    sha256 "eebad96faa46489dc8bf8502b16ec0192f5ff9d803794c9744ad50352bfca0f7" => :high_sierra
-    sha256 "ce43b6c4cd6ea5425807563eec3ec0e81a0815272fe6fabf793a8a30d5dbe91b" => :el_capitan
+    sha256 "face6b0b99e7d628232e379f02aeb9d0eb7d1b5efba77561e0fd9edba130393d" => :high_sierra
   end
 
-  keg_only :versioned_formula
-  # keg_only :shadowed_by_macos, "macOS provides LibreSSL"
+  keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
@@ -41,6 +36,9 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+    # Remove `no-asm` workaround when upstream releases a fix
+    # See also: https://github.com/openssl/openssl/issues/12254
+    arch_args << "no-asm" if Hardware::CPU.arm?
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)

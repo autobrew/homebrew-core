@@ -1,7 +1,7 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  revision 6
+  revision 8
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz"
@@ -17,17 +17,7 @@ class Libspatialite < Formula
 
   bottle do
     cellar :any
-#    sha256 "f1aaaa0bec4ec6b2c636139e391b2fc17e71e9ccad5588aba9362cb89bbb4729" => :mojave
-    sha256 "2a41b0baab67ec8b35f3c68b392439907a1b003a84437b8437b3ca3ecdcf35f4" => :high_sierra
-    sha256 "4b73791b59c7766a4e20d9ca77502d2866f7d07fb7aeba660bf38e41077ba60e" => :sierra
-    sha256 "eff5f3de6139cfe0adff6ec2fe306c7f11ee1f7b9195089d514902b11b0675d0" => :el_capitan
-  end
-
-  head do
-    url "https://www.gaia-gis.it/fossil/libspatialite", :using => :fossil
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "a77ac13e3758d389ccf42fa62d8a7bb528062c215e2b380b8d3df7211696712f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -50,11 +40,16 @@ class Libspatialite < Formula
     inreplace "configure",
               "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
               "shrext_cmds='.dylib'"
+    chmod 0755, "configure"
 
     # Ensure Homebrew's libsqlite is found before the system version.
     sqlite = Formula["sqlite"]
     ENV.append "LDFLAGS", "-L#{sqlite.opt_lib}"
     ENV.append "CFLAGS", "-I#{sqlite.opt_include}"
+
+    # Use Proj 6.0.0 compatibility headers.
+    # Remove in libspatialite 5.0.0
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     args = %W[
       --disable-dependency-tracking

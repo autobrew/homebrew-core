@@ -1,18 +1,12 @@
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
-  homepage "https://en.wikipedia.org/wiki/Bzip2"
-  url "https://ftp.osuosl.org/pub/clfs/conglomeration/bzip2/bzip2-1.0.6.tar.gz"
-  mirror "https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz"
-  sha256 "a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd"
-  revision 1
+  homepage "https://sourceware.org/bzip2/"
+  url "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
+  sha256 "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
 
   bottle do
     cellar :any_skip_relocation
-#    sha256 "3376ceeaaacba0847d3e2a38569080606c8ea3b5d7596467abeef0dff74118d0" => :mojave
-    sha256 "197655415959a8e856f5926ebbae88715b8aef68fa8612aaf0bfe7e1c96723bf" => :high_sierra
-    sha256 "8911d7904862dc4930d024d0459390c510566241015bc06ec97f9e3fbb869101" => :sierra
-    sha256 "a22f768ce625a56cc2f4b3c7f08f4b1ba30f79865b786dc4c57a97f672badff4" => :el_capitan
-    sha256 "1468f967e8a35954509a8beb40bd29b60b730db158054aeddadc7586890737e8" => :yosemite
+    sha256 "a3eedbcb61a66d3a1286685db878e19c1de90605626d1d988705f66a5aa66673" => :high_sierra
   end
 
   keg_only :provided_by_macos

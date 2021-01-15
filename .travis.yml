@@ -3,11 +3,10 @@ language: c
 
 branches:
   only:
-  - master
+  - devel
 
 matrix:
   include:
-    - osx_image: xcode8
     - osx_image: xcode10.1
 
 env:
