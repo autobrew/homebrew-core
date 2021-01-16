@@ -33,5 +33,5 @@ before_script:
 
 script:
   - echo "Building commit range $TRAVIS_COMMIT_RANGE"
-  - brew test-bot --local --skip-setup --skip-homebrew
+  - brew test-bot --local --skip-setup --skip-homebrew --skip-revdeps
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./upload_bottles.sh; fi'
