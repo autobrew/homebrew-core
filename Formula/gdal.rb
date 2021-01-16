@@ -7,7 +7,7 @@ class Gdal < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "cf400933c2862c17afa9e7e7affcd1b3163723b065d66ed93f73ef64f2be5de9" => :high_sierra
+    #sha256 "cf400933c2862c17afa9e7e7affcd1b3163723b065d66ed93f73ef64f2be5de9" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +27,7 @@ class Gdal < Formula
   depends_on "libxml2"
   depends_on "netcdf"
   depends_on "openjpeg"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "proj"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
@@ -72,6 +73,7 @@ class Gdal < Formula
       "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
       "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
       "--with-openjpeg",
+      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
       "--with-odbc=#{Formula["unixodbc"].opt_prefix}",
       "--with-dods-root=#{Formula["libdap"].opt_prefix}",
       "--with-webp=#{Formula["webp"].opt_prefix}",
