@@ -1,14 +1,14 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-3.0.0/apache-arrow-3.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
-  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
-  
+  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-3.0.0-rc2/apache-arrow-3.0.0.tar.gz"
+  sha256 "73c2cc3be537aa1f3fd9490cfec185714168c9bfd599d23e287ab0cc0558e27a"
+
   patch do
-    # Properly detect (lack of) avx512 support
-    url "https://github.com/apache/arrow/commit/bbe4bd3c9c158fb05d2d0a830e631918ad825529.patch"	
+    # Fix for el-capitan
+    url "https://github.com/apache/arrow/pull/9267.patch"
   end
   
   bottle do
@@ -38,6 +38,7 @@ class ApacheArrow < Formula
       -DARROW_PARQUET=ON
       -DARROW_BUILD_SHARED=OFF
       -DARROW_JEMALLOC=ON
+      -DARROW_MIMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
       -DARROW_S3=ON
