@@ -1,10 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-3.0.0/apache-arrow-3.0.0.tar.gz"
+  # url "https://downloads.apache.org/arrow/arrow-4.0.0/apache-arrow-4.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-3.0.0-rc2/apache-arrow-3.0.0.tar.gz"
-  sha256 "73c2cc3be537aa1f3fd9490cfec185714168c9bfd599d23e287ab0cc0558e27a"
+  url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-4.0.0-rc1/apache-arrow-4.0.0.tar.gz"
+  sha256 "51b05585db4f5e6ad8b5e8bd2eb9643bdc2278cf607799b041974bf354af7eb2"
 
   patch do
     # Fix for el-capitan
