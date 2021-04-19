@@ -5,11 +5,6 @@ class ApacheArrow < Formula
   # Uncomment and update to test on a release candidate 
   url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-4.0.0-rc1/apache-arrow-4.0.0.tar.gz"
   sha256 "51b05585db4f5e6ad8b5e8bd2eb9643bdc2278cf607799b041974bf354af7eb2"
-
-  patch do
-    # Fix for el-capitan
-    url "https://github.com/apache/arrow/pull/9267.patch"
-  end
   
   bottle do
     cellar :any
