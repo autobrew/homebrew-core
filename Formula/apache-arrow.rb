@@ -5,6 +5,7 @@ class ApacheArrow < Formula
   # Uncomment and update to test on a release candidate 
   # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
   sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
+  revision 1
   
   patch do
     # Properly detect (lack of) avx512 support
