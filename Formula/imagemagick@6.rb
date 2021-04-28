@@ -8,6 +8,7 @@ class ImagemagickAT6 < Formula
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-57.tar.xz"
   sha256 "1a1d35a6e702a498d34b4a4f9fbf5aab228ee233d18b83f742163071fc6b7e05"
   head "https://github.com/imagemagick/imagemagick6.git"
+  revision 1
 
   bottle do
     cellar :any
