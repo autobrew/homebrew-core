@@ -5,7 +5,8 @@ class ApacheArrow < Formula
   # Uncomment and update to test on a release candidate 
   # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-4.0.0-rc3/apache-arrow-4.0.0.tar.gz"
   sha256 "4a31d0bf702e953bdbcda67af10762a33308281bd247fcbd152ee177419649ae"
-  
+  revision 1
+
   bottle do
     cellar :any
     sha256 "d303fc169809ce830f1315d94a85092f8db6b752f16114a2f2b1e8a22b57e747" => :high_sierra

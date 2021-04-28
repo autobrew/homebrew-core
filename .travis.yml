@@ -17,6 +17,7 @@ env:
     - MACOS=1
 
 before_install:
+  - echo "127.0.0.1 homebrew.bintray.com" | sudo tee -a /etc/hosts
   - curl -fsSOL https://raw.githubusercontent.com/Homebrew/install/6f9b04355b11f6849fed761725a1f10cb326e979/uninstall
   - sudo ruby uninstall --force
   - rm uninstall
