@@ -1,16 +1,14 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.32.tar.bz2"
-  sha256 "f29e89cc5de813f45786580101aaee3984a65818631d4ddbda7b32f699b87c2e"
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.37.tar.bz2"
+  sha256 "4d95a96e8b80529893b4562be12648d798b957b1ba1aae39606bbc2ab956d270"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
   bottle do
     cellar :any
-#    sha256 "4ab53b8ef4ba5c9100b115cebcd0d510f8613a799598f232209f31066d1cbf8e" => :mojave
-    sha256 "b331ad445f1f5b0cfb2600c3a3b379d4908e12ec536e0004130ec13d979255d0" => :high_sierra
-    sha256 "20aac21af6a73297c34cb493f1424d34a32f18bda27b6ce9193115647ccdfc7c" => :sierra
-    sha256 "874fa184a674b4d8385f9a57b815e61992e0909a273268add0b70d7c0ffaedbd" => :el_capitan
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "9df4ad2c3ccb7df8677a18d2141a3b4af8207362f9c16e410955512776805971" => :high_sierra
   end
 
   def install
