@@ -8,8 +8,8 @@ class ApacheArrow < Formula
 
   bottle do
     cellar :any
-    sha256 "34b7d95fa6febceda31339ff2d4460e8d3e321825f5c8a9f01de0198314c137e" => :high_sierra
-    sha256 "3ab849e4b237b0da0dfc734ec8ae8fbc73798f27979f741d6a6df62f0b37bc81" => :el_capitan
+    sha256 "2b706015705f7accae42afbc40db16743a228fe92e0d91ffac4cf59ce20e2f3c" => :high_sierra
+    sha256 "e5597512a5c5fa93b083fd0653a0175e9d7515416a15db3fc0ecc5002719a8e1" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
