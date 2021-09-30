@@ -1,15 +1,15 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v1.2.0.tar.gz"
-  sha256 "701a5086a968a46f25e631941b99fc23e4755ca2c56f59371ce1d94b9a0cc643"
+  url "https://github.com/libgit2/libgit2/archive/v1.3.0.tar.gz"
+  sha256 "192eeff84596ff09efb6b01835a066f2df7cd7985e0991c79595688e6b36444e"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "e92693f2773558c0ced83b688553cb9c75c55916fdbe0bcd00259ec64cce6ecb" => :el_capitan
-    sha256 "4bf442818c4d18956318c1d0d8b2fdffcabcef698f7974a2b288e99bf6184a74" => :high_sierra
+    sha256 "ba666dd9b1121dba6ad258a2715461a4c6abcd9c02296a872436f6dbe3ebedbe" => :el_capitan
+    sha256 "16b7f2b6fec4231ee36049994e2e02a9bab1797c20deaa4bb9f40e24b6fd20e0" => :high_sierra
   end
 
   depends_on "cmake" => :build
