@@ -4,19 +4,24 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-57.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-57.tar.xz"
-  sha256 "1a1d35a6e702a498d34b4a4f9fbf5aab228ee233d18b83f742163071fc6b7e05"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.12-3.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-3.tar.xz"
+  sha256 "b9bf05a49f878713d96bc9c88d21414adaf2a542125530e2dee8a07128ef8ed1"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "01c692862ff5b2fc4e205ed30d83748303930df48bef3d61962f6acf990639d7" => :el_capitan
-    sha256 "f650cbe2d8269783c1c0954fcf924d278f6af0b88a1652048d9b5532347fe982" => :high_sierra
+    sha256 "291439c3704e3c064041ed006ba40a55f195e3b8e8598494e69dd2301566147b" => :el_capitan
+    sha256 "a4cf5383277a324af2ff70dda91fd7e1bdb1d6fb5110016b4eb008c31c5422be" => :high_sierra
   end
 
   keg_only :versioned_formula
+
+  # Hardcode thresholds.xml
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/ImageMagick/ImageMagick6/pull/141.diff"
+  end
 
   depends_on "pkg-config" => :build
   depends_on "gettext" => :test # via cairo
