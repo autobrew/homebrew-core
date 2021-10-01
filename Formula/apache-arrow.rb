@@ -1,20 +1,15 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-2.0.0/apache-arrow-2.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-2.0.0-rc2/apache-arrow-2.0.0.tar.gz"
-  sha256 "be0342cc847bb340d86aeaef43596a0b6c1dbf1ede9c789a503d939e01c71fbe"
-  
-  patch do
-    # Properly detect (lack of) avx512 support
-    url "https://github.com/apache/arrow/commit/bbe4bd3c9c158fb05d2d0a830e631918ad825529.patch"	
-  end
-  
+  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-4.0.1-rc1/apache-arrow-4.0.1.tar.gz"
+  sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
+
   bottle do
     cellar :any
-    sha256 "ea976b3c83e5507128c30dfe226567ac4997ef2b35bc13645d3429d78c87be3f" => :high_sierra
-    sha256 "b5f28aa64b96d876308ba1feddda0f2ccca6fa11068e6d24eb5045022bded55d" => :el_capitan
+    sha256 "2b706015705f7accae42afbc40db16743a228fe92e0d91ffac4cf59ce20e2f3c" => :high_sierra
+    sha256 "e5597512a5c5fa93b083fd0653a0175e9d7515416a15db3fc0ecc5002719a8e1" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
@@ -38,12 +33,12 @@ class ApacheArrow < Formula
       -DARROW_PARQUET=ON
       -DARROW_BUILD_SHARED=OFF
       -DARROW_JEMALLOC=ON
+      -DARROW_MIMALLOC=ON
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
       -DARROW_S3=ON
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
-      -DARROW_WITH_UTF8PROC=OFF
       -DARROW_WITH_ZLIB=ON
       -DARROW_WITH_ZSTD=ON
       -DARROW_BUILD_UTILITIES=ON
