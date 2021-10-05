@@ -1,9 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "https://download.osgeo.org/geos/geos-3.8.1.tar.bz2"
-  sha256 "4258af4308deb9dbb5047379026b4cd9838513627cb943a44e16c40e42ae17f7"
-  revision 2
+  url "https://download.osgeo.org/geos/geos-3.9.1.tar.bz2"
+  sha256 "7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a"
 
   bottle do
     cellar :any
@@ -14,12 +13,6 @@ class Geos < Formula
   depends_on "python" => :build
 
   def install
-    # https://trac.osgeo.org/geos/ticket/771
-    inreplace "configure" do |s|
-      s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python3-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-python",
