@@ -36,11 +36,11 @@ class Fftw < Formula
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", "--enable-single", *(args + simd_args)
-    system "make", "install"
+    #system "./configure", "--enable-single", *(args + simd_args)
+    #system "make", "install"
 
     # clean up so we can compile the double precision variant
-    system "make", "clean"
+    #system "make", "clean"
 
     # double precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
@@ -48,12 +48,12 @@ class Fftw < Formula
     system "make", "install"
 
     # clean up so we can compile the long-double precision variant
-    system "make", "clean"
+    #system "make", "clean"
 
     # long-double precision
     # no SIMD optimization available
-    system "./configure", "--enable-long-double", *args
-    system "make", "install"
+    #system "./configure", "--enable-long-double", *args
+    #system "make", "install"
   end
 
   test do
