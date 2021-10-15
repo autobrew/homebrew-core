@@ -1,15 +1,13 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
-  homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.8.tar.gz"
-  sha256 "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
+  homepage "https://www.fftw.org"
+  url "https://fftw.org/fftw-3.3.10.tar.gz"
+  sha256 "56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
 
   bottle do
     cellar :any
-#    sha256 "9de0f472ee7346aca3d44e10c94f4c3fcb89f0c3ba223aaaa530a4a3d9234980" => :mojave
-    sha256 "79b08a5da9b091c43d4fdaabd73ecb6e4dba6525598d376d7d74bdf5d1183acc" => :high_sierra
-    sha256 "17f2f88898b2754adb35f19857cd7c80966299fcdf2158cc1466b054deaa460e" => :sierra
-    sha256 "a94c5f646948f918e986ab0be56672ac52f527debe1ed4cc783fd1ba6c99fe73" => :el_capitan
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "1e4b699b5e116dfc4cab970d766da27020101196305b2ee13fc425f5dde1a9ec" => :high_sierra
   end
 
   option "with-mpi", "Enable MPI parallel transforms"
