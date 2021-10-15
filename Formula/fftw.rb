@@ -7,7 +7,7 @@ class Fftw < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "1e4b699b5e116dfc4cab970d766da27020101196305b2ee13fc425f5dde1a9ec" => :high_sierra
+    sha256 "7e8767b9136cd6da8c60ba7163e61eec66040319f2e0c85e8e001aceb47a484b" => :high_sierra
   end
 
   option "with-mpi", "Enable MPI parallel transforms"
@@ -36,11 +36,11 @@ class Fftw < Formula
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", "--enable-single", *(args + simd_args)
-    system "make", "install"
+    #system "./configure", "--enable-single", *(args + simd_args)
+    #system "make", "install"
 
     # clean up so we can compile the double precision variant
-    system "make", "clean"
+    #system "make", "clean"
 
     # double precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
@@ -48,12 +48,12 @@ class Fftw < Formula
     system "make", "install"
 
     # clean up so we can compile the long-double precision variant
-    system "make", "clean"
+    #system "make", "clean"
 
     # long-double precision
     # no SIMD optimization available
-    system "./configure", "--enable-long-double", *args
-    system "make", "install"
+    #system "./configure", "--enable-long-double", *args
+    #system "make", "install"
   end
 
   test do
