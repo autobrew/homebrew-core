@@ -1,15 +1,19 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-6.0.0/apache-arrow-6.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  # url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-4.0.1-rc1/apache-arrow-4.0.1.tar.gz"
-  sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
+  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-6.0.0-rc3/apache-arrow-6.0.0.tar.gz"
+  sha256 "69d268f9e82d3ebef595ad1bdc83d4cb02b20c181946a68631f6645d7c1f7a90"
+
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/apache/arrow/pull/11526.patch"
+  end
 
   bottle do
     cellar :any
-    sha256 "2b706015705f7accae42afbc40db16743a228fe92e0d91ffac4cf59ce20e2f3c" => :high_sierra
-    sha256 "e5597512a5c5fa93b083fd0653a0175e9d7515416a15db3fc0ecc5002719a8e1" => :el_capitan
+    sha256 "3cfec9875b0226f83ac726af2fbb4380442bd3281b4b37fc834cec9e0d292883" => :high_sierra
+    sha256 "2d254d5516d2c7bc3420245cf19076179c61c2bf1082b05f352cb43ff63fa506" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
