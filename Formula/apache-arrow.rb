@@ -6,6 +6,10 @@ class ApacheArrow < Formula
   url "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-6.0.0-rc3/apache-arrow-6.0.0.tar.gz"
   sha256 "69d268f9e82d3ebef595ad1bdc83d4cb02b20c181946a68631f6645d7c1f7a90"
 
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/apache/arrow/pull/11526.patch"
+  end
+
   bottle do
     cellar :any
     sha256 "2b706015705f7accae42afbc40db16743a228fe92e0d91ffac4cf59ce20e2f3c" => :high_sierra
