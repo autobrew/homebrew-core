@@ -6,8 +6,8 @@ class Gpgme < Formula
 
   bottle do
     root_url "https://autobrew.github.io/bottles"
-    sha256 "39236fd4ad9d2ee1e3e535afe945133706f1b4133371e459c61d033b990310c4" => :el_capitan
-    sha256 "b1041937d74e7911fdb683b27d24e7c0e2d216433591907520658531e2931c93" => :high_sierra
+    sha256 "6704e3bee444a39a3165cebebd3d55bcde6d60d0768d1b4c1a60cfe0af8c31a3" => :el_capitan
+    sha256 "e9c2977cd2624eab71e501913f49471534f2edef66d0b36df9ced7ada2efb795" => :high_sierra
   end
 
   depends_on "swig" => :build
