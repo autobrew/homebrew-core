@@ -1,8 +1,8 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.76.0/leptonica-1.76.0.tar.gz"
-  sha256 "5e9a33b7ce33ab39fb03cee5a7ec353b044670176303265d7c64d51539616857"
+  url "http://www.leptonica.org/source/leptonica-1.82.0.tar.gz"
+  sha256 "155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6"
 
   bottle do
     cellar :any
@@ -13,12 +13,12 @@ class Leptonica < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "giflib" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "webp" => :optional
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "giflib"
+  depends_on "openjpeg"
+  depends_on "webp"
 
   def install
     args = %W[
@@ -26,12 +26,8 @@ class Leptonica < Formula
       --prefix=#{prefix}
     ]
 
-    %w[libpng jpeg libtiff giflib].each do |dep|
-      args << "--without-#{dep}" if build.without?(dep)
-    end
-    %w[openjpeg webp].each do |dep|
-      args << "--with-lib#{dep}" if build.with?(dep)
-      args << "--without-lib#{dep}" if build.without?(dep)
+    %w[libpng jpeg libtiff giflib openjpeg webp].each do |dep|
+      args << "--with-lib#{dep}"
     end
 
     system "./configure", *args
