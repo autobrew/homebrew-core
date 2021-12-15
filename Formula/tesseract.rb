@@ -1,15 +1,14 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz"
-  sha256 "2a66ff0d8595bff8f04032165e6c936389b1e5727c3ce5a27b3e059d218db1cb"
+  url "https://github.com/tesseract-ocr/tesseract/archive/5.0.0.tar.gz"
+  sha256 "72467b7876dc0c39ef7fbcb0f793f73aee1c78d9fabab3ab19cbac1eb42e9fed"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "8db5c37a1bb4ac46a515bc856ae08a16bf1b5a0910ddc6f9d5c387e9c568e92e" => :high_sierra
-    sha256 "b46f8c99e175823bfb47886fca9e2d9c77dcc11eac9621b6c285f7f4768db85d" => :el_capitan
+    sha256 "87eadde4eaeed3b59ec6bda9abe7e0e9cca1d73e457b4c7c1ae87276d43e041b" => :high_sierra
   end
 
   option "with-all-languages", "Install recognition data for all languages"
@@ -19,7 +18,6 @@ class Tesseract < Formula
   deprecated_option "all-languages" => "with-all-languages"
 
   depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -36,18 +34,13 @@ class Tesseract < Formula
     depends_on :x11
   end
 
-  resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
-    sha256 "cfae2d9e15887a719c995baad70c01ad8f68c0361f5f0a4f46e4aa9ed8a47120"
-  end
-
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.1.0/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 
