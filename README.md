@@ -1,16 +1,19 @@
-# Autobrew Core
+# Autobrew Legacy Builder
 
-System libraries for building R packages.
+System libraries for building R packages on MacOS High-Sierra.
+
+*This is not an officially supported project.*
+
+__NOTE:__ This repository only builds legacy (high-sierra) binaries. For binaries targeting current versions of MacOS, including arm64 flavors, use the new [homebrew-cran](https://github.com/autobrew/homebrew-cran) tap.
 
 ## What is this
 
-CRAN currently targets MacOS 10.11 (El-Capitain), however this version of MacOS is no longer supported by Apple, and the latest Homebrew no longer works there. Autobrew is a fork from upstream [homebrew-core](https://github.com/homebrew/homebrew-core) from the last day of MacOS 10.11 support. We selectively backport and adapt system libraries needed for building R packages.
+CRAN currently targets MacOS 10.13 (High-Sierra), however this version of MacOS is no longer supported by Apple, and the current Homebrew no longer works there. Autobrew is a fork from upstream [homebrew-core](https://github.com/homebrew/homebrew-core) from the last day of MacOS 10.11 support. We selectively backport and adapt formulae needed for building R packages.
 
-This is not an officially supported project. All of this is a bit hacky and may not work for all libraries.
+We do not expect anyone to run this version locally; it is only intended to run on MacOS high-sierra on Travis-CI. The produced binaries are eventually [combined](https://github.com/autobrew/bundler) into bundles which contain the given libraries along with all dependencies needed to build the R package.
+
+These self-contained bundles are then published into the [autobrew archive](https://github.com/autobrew/archive), and can easily be downloaded by R packages using these [scripts](https://github.com/autobrew/scripts).
 
 ## Contributing
 
-If you send a pull request, the formula that has been changed will automatically be built on Travis CI. In addition some tests and reverse dependencies are checked. 
-
-At the end of the CI run the new binary bottle is uploaded to `file.io` and you see a download link in the Travis log.
- 
+If you send a pull request, the formula that has been changed will automatically be built on Travis CI. At the end of the CI run the new binary bottle is uploaded to `file.io` and you see a download link in the Travis log.

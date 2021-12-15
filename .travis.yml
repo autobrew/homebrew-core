@@ -3,7 +3,7 @@ language: c
 
 branches:
   only:
-  - devel
+  - high-sierra
 
 matrix:
   include:
