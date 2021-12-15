@@ -10,6 +10,4 @@ This is not an officially supported project.
 
 ## Contributing
 
-If you send a pull request, the formula that has been changed will automatically be built on Travis CI. In addition some tests and reverse dependencies are checked. 
-
-At the end of the CI run the new binary bottle is uploaded to `file.io` and you see a download link in the Travis log.
+If you send a pull request, the formula that has been changed will automatically be built on Travis CI. At the end of the CI run the new binary bottle is uploaded to `file.io` and you see a download link in the Travis log.
