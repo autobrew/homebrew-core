@@ -7,7 +7,6 @@ class AwsSdkCpp < Formula
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
-    rebuild 2
     cellar :any_skip_relocation
     sha256 "bdb323d0956096e8ab96e1e6d27252607117983e80cf661ff39644b978b8cb99" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
