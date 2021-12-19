@@ -9,8 +9,7 @@ class AwsSdkCpp < Formula
   bottle do
     rebuild 2
     cellar :any_skip_relocation
-    sha256 "4afb5bca9ce71df16332752f5a2bfb11fe3c768c81c9227f90ac6f3d24c16e78" => :high_sierra
-    sha256 "38c52cda2393f11f349d43ef65d93200fb6f141e66b7c2aecab44e74a85129f5" => :el_capitan
+    sha256 "bdb323d0956096e8ab96e1e6d27252607117983e80cf661ff39644b978b8cb99" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
   end
 
