@@ -1,15 +1,15 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.7.364.tar.gz"
-  sha256 "05ed242a601b614eb46e8e32b56367fc3f195ff3b63337eb928a72f4776ee495"
+  url "https://github.com/aws/aws-sdk-cpp.git",
+      tag:      "1.9.163",
+      revision: "6140db4ffa9ae018a2a9b94b43d07d011dae006b"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
     rebuild 2
     cellar :any_skip_relocation
-    sha256 "4afb5bca9ce71df16332752f5a2bfb11fe3c768c81c9227f90ac6f3d24c16e78" => :high_sierra
-    sha256 "38c52cda2393f11f349d43ef65d93200fb6f141e66b7c2aecab44e74a85129f5" => :el_capitan
+    sha256 "bdb323d0956096e8ab96e1e6d27252607117983e80cf661ff39644b978b8cb99" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
   end
 
