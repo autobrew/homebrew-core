@@ -12,11 +12,9 @@ class Thrift < Formula
   end
 
   bottle do
-    cellar :any
-#    sha256 "a26c4c6e39b346dc74c5d29ba271b9f64c537914eb3228e446e0ae2e34fa106b" => :mojave
-    sha256 "d1c648d84f21b567f1468625523b78d496d49954a3f5f28ce127f3eca7c0e2e4" => :high_sierra
-    sha256 "710f79cf150713e4e24ce03b605fcd3ea56651b58bb7afe64d8b4a948842616f" => :sierra
-    sha256 "e6f40c95f93331dda62d7cbfe0ce4f467c17e73e4a4a05f859e29a58533b52d8" => :el_capitan
+    cellar :any_skip_relocation
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "aac88290c8f911e563d4e69ac61481799fbdcb7a3b0fd6919e6ad4f96621d8e9" => :high_sierra
   end
 
   head do
