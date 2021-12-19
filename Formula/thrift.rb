@@ -1,15 +1,20 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.11.0/thrift-0.11.0.tar.gz"
-  sha256 "c4ad38b6cb4a3498310d405a91fef37b9a8e79a50cd0968148ee2524d2fa60c2"
+  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.15.0/thrift-0.15.0.tar.gz"
+  mirror "https://archive.apache.org/dist/thrift/0.15.0/thrift-0.15.0.tar.gz"
+  sha256 "d5883566d161f8f6ddd4e21f3a9e3e6b8272799d054820f1c25b11e86718f86b"
+
+  # Fix -flat_namespace being used on Big Sur and later.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  end
 
   bottle do
-    cellar :any
-#    sha256 "a26c4c6e39b346dc74c5d29ba271b9f64c537914eb3228e446e0ae2e34fa106b" => :mojave
-    sha256 "d1c648d84f21b567f1468625523b78d496d49954a3f5f28ce127f3eca7c0e2e4" => :high_sierra
-    sha256 "710f79cf150713e4e24ce03b605fcd3ea56651b58bb7afe64d8b4a948842616f" => :sierra
-    sha256 "e6f40c95f93331dda62d7cbfe0ce4f467c17e73e4a4a05f859e29a58533b52d8" => :el_capitan
+    cellar :any_skip_relocation
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "aac88290c8f911e563d4e69ac61481799fbdcb7a3b0fd6919e6ad4f96621d8e9" => :high_sierra
   end
 
   head do
@@ -45,6 +50,7 @@ class Thrift < Formula
     system "./bootstrap.sh" unless build.stable?
 
     exclusions = ["--without-ruby", "--disable-tests", "--without-php_extension"]
+    exclusions << "--without-swift"
 
     exclusions << "--without-python" if build.without? "python@2"
     exclusions << "--without-haskell" if build.without? "haskell"
