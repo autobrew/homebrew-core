@@ -5,6 +5,14 @@ class SuiteSparse < Formula
   sha256 "acb4d1045f48a237e70294b950153e48dce5b5f9ca8190e86c2b8c54ce00a7ee"
 
   depends_on "cmake" => :build
+  depends_on "gmp" => :build
+  depends_on "mpfr" => :build
+
+  bottle do
+    cellar :any_skip_relocation
+    root_url "https://autobrew.github.io/bottles"
+    sha256 "48ce49fce2275c4a1fe036652cf602a0ff2aa725ea8ac88355fcdbcce0cc461f" => :high_sierra
+  end
 
   def install
     args = [
