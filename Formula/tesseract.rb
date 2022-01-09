@@ -1,8 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/5.0.0.tar.gz"
-  sha256 "72467b7876dc0c39ef7fbcb0f793f73aee1c78d9fabab3ab19cbac1eb42e9fed"
+  url "https://github.com/tesseract-ocr/tesseract/archive/5.0.1.tar.gz"
+  sha256 "b5b0e561650ed67feb1e9de38d4746121d302ae4c876c95b99b8b6f9f89d5c58"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
