@@ -8,6 +8,7 @@ class Leptonica < Formula
     cellar :any
     root_url "https://autobrew.github.io/bottles"
     sha256 "c6ee33a271cce7d1d5057659dd01eb69df0d1bcf130f8025dede7364f729a3b6" => :high_sierra
+    sha256 "52c744aa5bda90930520b0bd57fa945fd414a19445acfcfeb7a81940314977d0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
