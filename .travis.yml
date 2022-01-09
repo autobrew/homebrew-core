@@ -3,12 +3,11 @@ language: c
 
 branches:
   only:
-  - master
+  - el-capitan
 
 matrix:
   include:
     - osx_image: xcode8
-    - osx_image: xcode10.1
 
 env:
   global:
