@@ -1,14 +1,16 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1.tar.gz"
-  sha256 "c0e3338bd37e67155b9d1e9526fec326b5c541f74857771b7ffed0c46ad62508"
+  url "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.22.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.22.1.tar.gz"
+  sha256 "0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38522cf8d87c44416649c349835e76583bdaa0c23bd68ce1ab4cc4df73f36658" => :high_sierra
-    sha256 "0338c8f714ebc943520bd2bdc96e88c9c9786018853c4a8649d90413c9ce3280" => :el_capitan
+    sha256 "6e7ac6a6c9a9f7ec2190aef1a3d97c16bdf18c4fd3b30eff45bfec8e58a37ff7" => :high_sierra
+    sha256 "90ee10883a367fb1277d1e0807533434bd017eba0516f219ffa9ac1dfbcb7947" => :el_capitan
     root_url "https://autobrew.github.io/bottles"
   end
 
