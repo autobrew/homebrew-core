@@ -1,8 +1,10 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1.tar.gz"
-  sha256 "c0e3338bd37e67155b9d1e9526fec326b5c541f74857771b7ffed0c46ad62508"
+  url "https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.22.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.22.1.tar.gz"
+  sha256 "0e998229549d7b3f368703d20e248e7ee1f853910d42704aa87918c213ea82c0"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   bottle do
