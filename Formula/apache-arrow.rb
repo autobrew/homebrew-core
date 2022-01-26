@@ -13,6 +13,10 @@ class ApacheArrow < Formula
     root_url "https://autobrew.github.io/bottles"
   end
 
+  patch do
+    url "https://github.com/autobrew/arrow/commit/b925c48ee.patch?full_index=1"
+  end
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "aws-sdk-cpp"
