@@ -3,8 +3,8 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://downloads.apache.org/arrow/arrow-7.0.0/apache-arrow-7.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-7.0.0-rc8/apache-arrow-7.0.0.tar.gz"
-  sha256 "c493d9c4e1de2028fbbb8522b6bf9a36f4e0a2c05dbbd046df08e87a74fb123e"
+  # mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-7.0.0-rc8/apache-arrow-7.0.0.tar.gz"
+  sha256 "e8f49b149a15ecef4e40fcfab1b87c113c6b1ee186005c169e5cdf95d31a99de"
 
   bottle do
     cellar :any
