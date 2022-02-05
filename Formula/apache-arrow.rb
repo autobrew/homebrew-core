@@ -1,16 +1,19 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-6.0.1/apache-arrow-6.0.1.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-7.0.0/apache-arrow-7.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-6.0.1-rc1/apache-arrow-6.0.1.tar.gz"
-  sha256 "3786b3d2df954d078b3e68f98d2e5aecbaa3fa2accf075d7a3a13c187b9c5294"
+  # mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-7.0.0-rc8/apache-arrow-7.0.0.tar.gz"
+  sha256 "e8f49b149a15ecef4e40fcfab1b87c113c6b1ee186005c169e5cdf95d31a99de"
 
   bottle do
     cellar :any
-    sha256 "f06de492fb7a9ffe3459ce3f417811000c5ba3165205fb33fcae5594a243b443" => :high_sierra
-    sha256 "50bd611f13963429bc7df488c84b2b41dd22cb8da9c52794fbf649bdb4abd5a2" => :el_capitan
+    sha256 "16e128b5a2b861e5f293fe43086c67e3e1d806a02ce793912e99ed85bd5503be" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
+  end
+
+  patch do
+    url "https://github.com/autobrew/arrow/commit/b925c48ee.patch?full_index=1"
   end
 
   depends_on "boost" => :build
