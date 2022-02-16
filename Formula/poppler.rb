@@ -1,15 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-21.12.0.tar.xz"
-  sha256 "acb840c2c1ec07d07e53c57c4b3a1ff3e3ee2d888d44e1e9f2f01aaf16814de7"
+  url "https://poppler.freedesktop.org/poppler-22.02.0.tar.xz"
+  sha256 "e390c8b806f6c9f0e35c8462033e0a738bb2460ebd660bdb8b6dca01556193e1"
   head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "78a3e3c058b47e47aa2585313c9f2a1545481488bd544a18ff054cceeefb510a" => :el_capitan
-    sha256 "eef6ee40c7ed637eeef1885b05ea25deb06da159d23961773c4e6f45a57be545" => :high_sierra
+    sha256 "3461b90cf47fd5ef52fe8f2fb8465293e32a8e3c6fa91b446b286468acf92c01" => :high_sierra
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -24,7 +23,6 @@ class Poppler < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
-  depends_on "glib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -34,6 +32,10 @@ class Poppler < Formula
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+
+  patch do
+    url "https://autobrew.github.io/patches/poppler/segfault-on-unset-catalog.patch"
+  end
 
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.11.tar.gz"
@@ -47,7 +49,7 @@ class Poppler < Formula
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_BOOST=OFF
       -DENABLE_CMS=lcms2
-      -DENABLE_GLIB=ON
+      -DENABLE_GLIB=OFF
       -DENABLE_QT5=OFF
       -DENABLE_QT6=OFF
       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
@@ -62,14 +64,12 @@ class Poppler < Formula
     system "make"
     lib.install "libpoppler.a"
     lib.install "cpp/libpoppler-cpp.a"
-    lib.install "glib/libpoppler-glib.a"
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
     end
 
     libpoppler = (lib/"libpoppler.dylib").readlink
-    to_fix = ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
-              *Dir["#{bin}/*"]]
+    to_fix = ["#{lib}/libpoppler-cpp.dylib", *Dir["#{bin}/*"]]
     to_fix << "#{lib}/libpoppler-qt5.dylib" if build.with?("qt")
     to_fix.each do |f|
       macho = MachO.open(f)
