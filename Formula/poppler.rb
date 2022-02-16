@@ -8,8 +8,7 @@ class Poppler < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "78a3e3c058b47e47aa2585313c9f2a1545481488bd544a18ff054cceeefb510a" => :el_capitan
-    sha256 "eef6ee40c7ed637eeef1885b05ea25deb06da159d23961773c4e6f45a57be545" => :high_sierra
+    sha256 "3461b90cf47fd5ef52fe8f2fb8465293e32a8e3c6fa91b446b286468acf92c01" => :high_sierra
   end
 
   option "with-qt", "Build Qt5 backend"
