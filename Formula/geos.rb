@@ -7,7 +7,7 @@ class Geos < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "be0802809ba01d6508780f24ac5cba78d480be9e6a1f649be8979ff04d3aec63" => :high_sierra
+    sha256 "6fe9dbac68dd2edc3005b42f5dff1e2a09b3db4d3f22a05ea84c749c654b130f" => :high_sierra
   end
 
   depends_on "cmake" => :build
