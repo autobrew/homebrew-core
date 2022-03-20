@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.3.2/gdal-3.3.2.tar.xz"
-  sha256 "630e34141cf398c3078d7d8f08bb44e804c65bbf09807b3610dcbfbc37115cc3"
+  url "https://download.osgeo.org/gdal/3.4.2/gdal-3.4.2.tar.xz"
+  sha256 "16baf03dfccf9e3f72bb2e15cd2d5b3f4be0437cdff8a785bceab0c7be557335"
 
   bottle do
     cellar :any
@@ -24,7 +24,6 @@ class Gdal < Formula
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libspatialite"
-  depends_on "libtiff"
   depends_on "libxml2"
   depends_on "netcdf"
   depends_on "openjpeg"
@@ -63,7 +62,7 @@ class Gdal < Formula
       "--with-gif=#{Formula["giflib"].opt_prefix}",
       "--with-jpeg=#{Formula["jpeg"].opt_prefix}",
       "--with-libjson-c=#{Formula["json-c"].opt_prefix}",
-      "--with-libtiff=#{Formula["libtiff"].opt_prefix}",
+      "--with-libtiff=internal",
       "--with-pg=yes",
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
