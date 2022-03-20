@@ -7,7 +7,7 @@ class Gdal < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "f2f5db5af0072580e57994f9cb32711c9bbea69e365137bba472955cc745d979" => :high_sierra
+    sha256 "1b8e7c416fa212b68e092964eb7daf1fe8100d7782720991394d4a0975d429e6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
