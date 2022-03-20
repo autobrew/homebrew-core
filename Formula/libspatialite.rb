@@ -16,7 +16,7 @@ class Libspatialite < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "6e7a50fdcb2f6f55f013853d7d82734ec3d95fcf1efc15c9e3b68674f6b6bc77" => :high_sierra
+    sha256 "4b897b426f2ff0b719d428241f05b2ef68435abdf1bd6e1ec3a877fa4fd350b8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
