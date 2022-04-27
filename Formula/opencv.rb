@@ -1,8 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.4.0.tar.gz"
-  sha256 "bb95acd849e458be7f7024d17968568d1ccd2f0681d47fd60d34ffb4b8c52563"
+  url "https://github.com/opencv/opencv/archive/4.5.5.tar.gz"
+  sha256 "a1cfdcf6619387ca9e232687504da996aaa9f7b5689986b8331ec02cb61d28ad"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +22,8 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.4.0.tar.gz"
-    sha256 "a69772f553b32427e09ffbfd0c8d5e5e47f7dab8b3ffc02851ffd7f912b76840"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.5.tar.gz"
+    sha256 "a97c2eaecf7a23c6dbd119a609c6d7fae903e5f9ff5f1fe678933e01c67a6c11"
   end
 
   def install
