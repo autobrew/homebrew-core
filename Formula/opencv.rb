@@ -7,8 +7,7 @@ class Opencv < Formula
   bottle do
     cellar :any_skip_relocation
     root_url "https://autobrew.github.io/bottles"
-    sha256 "cac4e5994d8c853ffeb88f607dbf2883710032bd5df151b8e7b4dfa204d6b280" => :el_capitan
-    sha256 "96ddcfd78fbfb2bd9f781d964fb9271911e25f2a8118383d39e6c530da66f443" => :high_sierra
+    sha256 "d27b3ea042345e732d6da1eea93813917106825d12b76fb6407dc5f6a1e13661" => :high_sierra
   end
 
   depends_on "cmake" => :build
