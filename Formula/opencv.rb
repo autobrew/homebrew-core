@@ -16,6 +16,7 @@ class Opencv < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "protobuf"
   depends_on "webp"
   depends_on "python" => :build
   depends_on "tbb"
@@ -66,7 +67,7 @@ class Opencv < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DWITH_PROTOBUF=OFF
+      -DWITH_PROTOBUF=ON
       -DWITH_QUIRC=OFF
       -DWITH_ADE=OFF
       -DWITH_IPP=OFF
