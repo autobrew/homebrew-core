@@ -7,7 +7,7 @@ class Opencv < Formula
   bottle do
     cellar :any_skip_relocation
     root_url "https://autobrew.github.io/bottles"
-    sha256 "d27b3ea042345e732d6da1eea93813917106825d12b76fb6407dc5f6a1e13661" => :high_sierra
+    sha256 "e6fed4a4752de19d9771eeca8075cb2251a00ad137661abd5104cbbbc46a53af" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,6 +16,7 @@ class Opencv < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "protobuf"
   depends_on "webp"
   depends_on "python" => :build
   depends_on "tbb"
@@ -66,7 +67,7 @@ class Opencv < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DWITH_PROTOBUF=OFF
+      -DWITH_PROTOBUF=ON
       -DWITH_QUIRC=OFF
       -DWITH_ADE=OFF
       -DWITH_IPP=OFF
