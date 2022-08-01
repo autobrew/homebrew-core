@@ -1,10 +1,10 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-8.0.0/apache-arrow-8.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-9.0.0/apache-arrow-9.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-8.0.0-rc3/apache-arrow-8.0.0.tar.gz"
-  sha256 "ad9a05705117c989c116bae9ac70492fe015050e1b80fb0e38fde4b5d863aaa3"
+  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-9.0.0-rc2/apache-arrow-9.0.0.tar.gz"
+  sha256 "a9a033f0a3490289998f458680d19579cf07911717ba65afde6cb80070f7a9b5"
 
   bottle do
     cellar :any
@@ -12,11 +12,8 @@ class ApacheArrow < Formula
     root_url "https://autobrew.github.io/bottles"
   end
 
-  patch do
-    url "https://github.com/autobrew/arrow/commit/b925c48ee.patch?full_index=1"
-  end
-
   depends_on "boost" => :build
+  depends_on "brotli"
   depends_on "cmake" => :build
   depends_on "aws-sdk-cpp"
   depends_on "lz4"
@@ -40,6 +37,8 @@ class ApacheArrow < Formula
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
       -DARROW_S3=ON
+      -DARROW_WITH_BROTLI=ON
+      -DARROW_WITH_BZ2=ON
       -DARROW_WITH_LZ4=ON
       -DARROW_WITH_SNAPPY=ON
       -DARROW_WITH_ZLIB=ON
