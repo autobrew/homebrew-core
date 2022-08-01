@@ -37,6 +37,7 @@ class ApacheArrow < Formula
       -DARROW_USE_GLOG=OFF
       -DARROW_PYTHON=OFF
       -DARROW_S3=ON
+      -DARROW_GCS=ON
       -DARROW_WITH_BROTLI=ON
       -DARROW_WITH_BZ2=ON
       -DARROW_WITH_LZ4=ON
