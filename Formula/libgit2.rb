@@ -8,8 +8,7 @@ class Libgit2 < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "ba666dd9b1121dba6ad258a2715461a4c6abcd9c02296a872436f6dbe3ebedbe" => :el_capitan
-    sha256 "16b7f2b6fec4231ee36049994e2e02a9bab1797c20deaa4bb9f40e24b6fd20e0" => :high_sierra
+    sha256 "2f8648727429586d3ab9092059914e38148ba78db96122b48c3c7f672397d0f6" => :high_sierra
   end
 
   depends_on "cmake" => :build
