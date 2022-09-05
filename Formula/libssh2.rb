@@ -8,8 +8,7 @@ class Libssh2 < Formula
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "f5e9abfe13cbea489ab11d5a7c5704d29b5c7c2f74921c32b1db908cc0c38a3b" => :high_sierra
-    sha256 "a0ab62111867ff1e87077ee8c82fd3fcde3d0d3a1771de4422eb05160486c973" => :el_capitan
+    sha256 "dfcbd5dd5dd25299fbc6c90065061d12e5b5a8b9caacce5249370a58b652922b" => :high_sierra
   end
 
   head do
