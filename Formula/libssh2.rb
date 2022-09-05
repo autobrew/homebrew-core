@@ -1,8 +1,9 @@
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://libssh2.org/"
-  url "https://libssh2.org/download/libssh2-1.9.0.tar.gz"
-  sha256 "d5fb8bd563305fd1074dda90bd053fb2d29fc4bce048d182f96eaa466dfadafd"
+  url "https://github.com/libssh2/libssh2.git",
+      :revision => "6c59eea5a9ea77127ec0fa3d6815c8adc743dba3"
+  version "1.10.1"
 
   bottle do
     cellar :any
@@ -19,6 +20,10 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
+  # Build from git for now: https://github.com/libssh2/libssh2/issues/536#issuecomment-892897873
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "openssl@1.1"
 
   def install
@@ -33,7 +38,7 @@ class Libssh2 < Formula
       --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    system "./buildconf" if build.head?
+    system "autoreconf -fi"
     system "./configure", *args
     system "make", "install"
   end
