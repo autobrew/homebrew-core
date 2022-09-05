@@ -1,15 +1,14 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v1.3.0.tar.gz"
-  sha256 "192eeff84596ff09efb6b01835a066f2df7cd7985e0991c79595688e6b36444e"
+  url "https://github.com/libgit2/libgit2/archive/v1.4.2.tar.gz"
+  sha256 "901c2b4492976b86477569502a41c31b274b69adc177149c02099ea88404ef19"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
     root_url "https://autobrew.github.io/bottles"
-    sha256 "ba666dd9b1121dba6ad258a2715461a4c6abcd9c02296a872436f6dbe3ebedbe" => :el_capitan
-    sha256 "16b7f2b6fec4231ee36049994e2e02a9bab1797c20deaa4bb9f40e24b6fd20e0" => :high_sierra
+    sha256 "2f8648727429586d3ab9092059914e38148ba78db96122b48c3c7f672397d0f6" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,7 +18,8 @@ class Libgit2 < Formula
   def install
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=YES"
-    args << "-DBUILD_CLAR=NO" # Don't build tests.
+    args << "-DBUILD_TESTS=OFF" # Don't build tests.
+    args << "-DUSE_SSH=YES"
 
     mkdir "build" do
       system "cmake", "..", *args
