@@ -5,6 +5,7 @@ class Libpq < Formula
   sha256 "d4f72cb5fb857c9a9f75ec8cf091a1771272802f2178f0b2e65b7b6ff64f4a30"
 
   bottle do
+    root_url "https://autobrew.github.io/bottles"
     sha256 "845b5bff47dfcfdd74bd3f23df2d8b2564cacfcf405c4f58244385a877faec94" => :high_sierra
   end
 
