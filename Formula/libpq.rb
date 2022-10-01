@@ -6,6 +6,7 @@ class Libpq < Formula
 
   bottle do
     root_url "https://autobrew.github.io/bottles"
+    sha256 "e5412e00796e6f5cbd8ff063491f850173e480cf806f770a334a2622512ca7ed" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"
