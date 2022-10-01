@@ -6,15 +6,13 @@ class Libpq < Formula
 
   bottle do
     root_url "https://autobrew.github.io/bottles"
-    sha256 "845b5bff47dfcfdd74bd3f23df2d8b2564cacfcf405c4f58244385a877faec94" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"
 
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
-  depends_on "krb5"
-
+  # depends_on "krb5"
   depends_on "openssl@1.1"
 
   def install
@@ -22,8 +20,8 @@ class Libpq < Formula
                           "--prefix=#{prefix}",
                           "--with-gssapi",
                           "--with-openssl",
-                          "--libdir=#{opt_lib}",
-                          "--includedir=#{opt_include}"
+                          "--libdir=#{Formula["openssl@1.1"].opt_lib}",
+                          "--includedir=#{Formula["openssl@1.1"].opt_include}"
     dirs = %W[
       libdir=#{lib}
       includedir=#{include}
