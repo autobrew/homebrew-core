@@ -25,6 +25,7 @@ class ApacheArrow < Formula
     args = %W[
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON
+      -DARROW_CXXFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"
       -DARROW_DATASET=ON
       -DARROW_FILESYSTEM=ON
       -DARROW_HDFS=OFF
