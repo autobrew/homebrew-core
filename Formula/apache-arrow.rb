@@ -22,7 +22,6 @@ class ApacheArrow < Formula
   depends_on "zstd"
 
   def install
-    ENV.cxx17
     args = %W[
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON
