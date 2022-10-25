@@ -1,14 +1,14 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-9.0.0/apache-arrow-9.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-10.0.0/apache-arrow-10.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-9.0.0-rc2/apache-arrow-9.0.0.tar.gz"
-  sha256 "a9a033f0a3490289998f458680d19579cf07911717ba65afde6cb80070f7a9b5"
+  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-10.0.0-rc0/apache-arrow-10.0.0.tar.gz"
+  sha256 "5b46fa4c54f53e5df0019fe0f9d421e93fc906b625ebe8e89eed010d561f1f12"
 
   bottle do
     cellar :any
-    sha256 "f40eafa18ac11daf20e8afc0a2952b8aa1d5d1810ce354dd7d220a1d2afc19c8" => :high_sierra
+    sha256 "b5ff61a467d8f91572674326bb7abf16e7f2188564fc977036d9a0522f3c2c85" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
   end
 
@@ -22,10 +22,10 @@ class ApacheArrow < Formula
   depends_on "zstd"
 
   def install
-    ENV.cxx11
     args = %W[
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON
+      -DARROW_CXXFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"
       -DARROW_DATASET=ON
       -DARROW_FILESYSTEM=ON
       -DARROW_HDFS=OFF
@@ -67,7 +67,7 @@ class ApacheArrow < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-larrow", "-larrow_bundled_dependencies", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-D_LIBCPP_DISABLE_AVAILABILITY", "-I#{include}", "-L#{lib}", "-larrow", "-larrow_bundled_dependencies", "-o", "test"
     system "./test"
   end
 end
