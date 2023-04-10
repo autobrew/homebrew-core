@@ -1,14 +1,16 @@
 # Autobrew Legacy Builder
 
-System libraries for building R packages on MacOS High-Sierra.
+System libraries for building legacy R packages on MacOS High-Sierra.
 
 *This is not an officially supported project.*
 
-__NOTE:__ This repository only builds legacy (high-sierra) binaries. For binaries targeting current versions of MacOS, including arm64 flavors, use the new [homebrew-cran](https://github.com/autobrew/homebrew-cran) tap.
+__UPDATE:__ This repository only builds legacy (high-sierra) binaries, for R 4.2 and below on CRAN.
+
+Starting R 4.3, CRAN is targetting MacOS 11 (Big Sur). For those binaries, including arm64 flavors, use the new [homebrew-cran](https://github.com/autobrew/homebrew-cran) tap.
 
 ## What is this
 
-CRAN currently targets MacOS 10.13 (High-Sierra), however this version of MacOS is no longer supported by Apple, and the current Homebrew no longer works there. Autobrew is a fork from upstream [homebrew-core](https://github.com/homebrew/homebrew-core) from the last day of MacOS 10.11 support. We selectively backport and adapt formulae needed for building R packages.
+CRAN targets MacOS 10.13 (High-Sierra) on R 4.2, however this version of MacOS is no longer supported by Apple, and the current Homebrew no longer works there. Autobrew is a fork from upstream [homebrew-core](https://github.com/homebrew/homebrew-core) from the last day of MacOS 10.11 support. We selectively backport and adapt formulae needed for building R packages.
 
 We do not expect anyone to run this version locally; it is only intended to run on MacOS high-sierra on Travis-CI. The produced binaries are eventually [combined](https://github.com/autobrew/bundler) into bundles which contain the given libraries along with all dependencies needed to build the R package.
 
