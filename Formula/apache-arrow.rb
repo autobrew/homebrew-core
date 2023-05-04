@@ -1,14 +1,14 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://downloads.apache.org/arrow/arrow-11.0.0/apache-arrow-11.0.0.tar.gz"
+  url "https://downloads.apache.org/arrow/arrow-12.0.0/apache-arrow-12.0.0.tar.gz"
   # Uncomment and update to test on a release candidate 
-  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-11.0.0-rc0/apache-arrow-11.0.0.tar.gz"
-  sha256 "2dd8f0ea0848a58785628ee3a57675548d509e17213a2f5d72b0d900b43f5430"
+  mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-12.0.0-rc0/apache-arrow-12.0.0.tar.gz"
+  sha256 "ddd8347882775e53af7d0965a1902b7d8fcd0a030fd14f783d4f85e821352d52"
 
   bottle do
     cellar :any
-    sha256 "27b3677ea434c01b1878f1d794d28332d0b5c58d9453841fe389645fc6bd4e8d" => :high_sierra
+    sha256 "799b6e799c5780bbe02e9808b04ef3b1101849267f7f936c7d8fcaa2dd2b6c44" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
   end
 
@@ -23,6 +23,7 @@ class ApacheArrow < Formula
 
   def install
     args = %W[
+      -DARROW_ACERO=ON
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON
       -DARROW_CXXFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"
