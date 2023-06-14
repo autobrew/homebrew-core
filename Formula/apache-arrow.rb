@@ -4,7 +4,7 @@ class ApacheArrow < Formula
   url "https://downloads.apache.org/arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
   # Uncomment and update to test on a release candidate 
   mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-12.0.1-rc1/apache-arrow-12.0.1.tar.gz"
-  sha256 "3481c411393aa15c75e88d93cf8315faf7f43e180fe0790128d3840d417de858"
+  sha256 "55fe1d17a3c2121b39bd71d7fc61d1053b183fa3bb5982a76d3c2b3ac5fb4aca"
 
   bottle do
     cellar :any
