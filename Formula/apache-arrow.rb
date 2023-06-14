@@ -4,11 +4,11 @@ class ApacheArrow < Formula
   url "https://downloads.apache.org/arrow/arrow-12.0.1/apache-arrow-12.0.1.tar.gz"
   # Uncomment and update to test on a release candidate 
   mirror "https://dist.apache.org/repos/dist/dev/arrow/apache-arrow-12.0.1-rc1/apache-arrow-12.0.1.tar.gz"
-  sha256 "55fe1d17a3c2121b39bd71d7fc61d1053b183fa3bb5982a76d3c2b3ac5fb4aca"
+  sha256 "ddd8347882775e53af7d0965a1902b7d8fcd0a030fd14f783d4f85e821352d52"
 
   bottle do
     cellar :any
-    sha256 "799b6e799c5780bbe02e9808b04ef3b1101849267f7f936c7d8fcaa2dd2b6c44" => :high_sierra
+    sha256 "55fe1d17a3c2121b39bd71d7fc61d1053b183fa3bb5982a76d3c2b3ac5fb4aca" => :high_sierra
     root_url "https://autobrew.github.io/bottles"
   end
 
